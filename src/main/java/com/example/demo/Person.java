@@ -27,14 +27,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p")
-    , @NamedQuery(name = "Person.findByPersonIndex", query = "SELECT p FROM Person p WHERE p.personIndex = :personIndex")
-    , @NamedQuery(name = "Person.findByFirstName", query = "SELECT p FROM Person p WHERE p.firstName = :firstName")
-    , @NamedQuery(name = "Person.findByLastName", query = "SELECT p FROM Person p WHERE p.lastName = :lastName")
-    , @NamedQuery(name = "Person.findByAccountNumber", query = "SELECT p FROM Person p WHERE p.accountNumber = :accountNumber")
-    , @NamedQuery(name = "Person.findByRoutingNumber", query = "SELECT p FROM Person p WHERE p.routingNumber = :routingNumber")
-    , @NamedQuery(name = "Person.findByPhone", query = "SELECT p FROM Person p WHERE p.phone = :phone")
-    , @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email = :email")
-    , @NamedQuery(name = "Person.findByLoginID", query = "SELECT p FROM Person p WHERE p.loginID = :loginID")})
+    , @NamedQuery(name = "Person.findByPersonIndex", query = "SELECT p FROM Person p WHERE p.personIndex = ?1")
+    , @NamedQuery(name = "Person.findByFirstName", query = "SELECT p FROM Person p WHERE p.firstName = ?1")
+    , @NamedQuery(name = "Person.findByLastName", query = "SELECT p FROM Person p WHERE p.lastName = ?1")
+    , @NamedQuery(name = "Person.findByAccountNumber", query = "SELECT p FROM Person p WHERE p.accountNumber = ?1")
+    , @NamedQuery(name = "Person.findByRoutingNumber", query = "SELECT p FROM Person p WHERE p.routingNumber = ?1")
+    , @NamedQuery(name = "Person.findByPhone", query = "SELECT p FROM Person p WHERE p.phone = ?1")
+    , @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email = ?1")
+    , @NamedQuery(name = "Person.findByLoginID", query = "SELECT p FROM Person p WHERE p.loginID = ?1")})
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;

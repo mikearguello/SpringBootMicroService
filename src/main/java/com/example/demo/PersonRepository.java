@@ -12,5 +12,7 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface PersonRepository extends CrudRepository<Person, Long> {
-
+   Person findByLastName(String personIndex);
+   Person findByPersonIndex(Integer pindex);
+   
 }

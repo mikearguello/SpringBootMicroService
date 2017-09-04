@@ -6,11 +6,13 @@
 package com.example.demo;
 
 
+import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,6 +37,17 @@ public class MainController {
 		n.setEmail(email);
 		personRepository.save(n);
 		return personService.format();
+	}
+        
+        @GetMapping(path="/all/{token}") // Map ONLY GET Requests
+	public @ResponseBody Person getThisUser(@PathVariable Integer token) {
+		// @ResponseBody means the returned String is the response, not a view name
+		// @RequestParam means it is a parameter from the GET or POST request
+
+                System.out.println("Inside getting on person with token: "+token);
+               
+		return personRepository.findByPersonIndex(token);
+                
 	}
 
 	@GetMapping(path="/all")  
