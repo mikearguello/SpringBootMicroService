@@ -6,16 +6,11 @@
 package com.example.demo;
 
 
-import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -30,7 +25,7 @@ public class MainController {
         private PersonService personService;
 
 	//@GetMapping(path="/add") // Map ONLY GET Requests
-        @RequestMapping(value = "/add", method= RequestMethod.GET)  //Thsi shoudl be POST, not GET
+        @RequestMapping(value = "/add", method= RequestMethod.POST)  //Thsi shoudl be POST, not GET
 	public String addNewPerson (@RequestParam String name, @RequestParam String email) {
 		// @ResponseBody means the returned String is the response, not a view name
 		// @RequestParam means it is a parameter from the GET or POST request
@@ -59,5 +54,11 @@ public class MainController {
 	public Iterable<Person> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return personRepository.findAll();
+	}
+        
+        @RequestMapping(value = "/hi", method= RequestMethod.GET)
+	public String hello(@RequestParam String name) {
+		// This returns a JSON or XML with the users
+		return "hello "+name;
 	}
 }

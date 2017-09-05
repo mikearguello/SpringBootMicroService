@@ -13,9 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackageClasses = {
-    MainController.class
-})
 public class Test1Application {
 
     public static void main(String[] args) {
