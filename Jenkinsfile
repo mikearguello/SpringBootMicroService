@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('send_sms') {
       steps {
-        sh './sms_send'
+        sh './echo hello'
         echo 'Dang this better work'
       }
     }
