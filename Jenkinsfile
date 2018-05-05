@@ -4,6 +4,7 @@ pipeline {
     stage('send_sms') {
       steps {
         sh './sms_send'
+        echo 'Dang this better work'
       }
     }
   }
